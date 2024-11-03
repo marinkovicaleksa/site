@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Маринковић Алекса</title>
+    <link rel="stylesheet" href="style.css">
+	<link rel="icon" type="image/x-icon" href="slike/a1.png">
+<style>
+    /* Styles for File Manager and Sidebar */
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    .container { 
+        display: flex; 
+        justify-content: flex-start; /* Aligns sidebar to the left */
+    }
+    
+    /* Sidebar Styling */
+    .sidebar {
+        width: 200px;
+        padding: 20px;
+        background-color: #333; /* Dark gray background */
+        color: #fff; /* White text */
+        box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .sidebar h2 { font-size: 18px; color: #fff; margin: 0; }
+    .sidebar ul { list-style-type: none; padding: 0; margin: 0; }
+    .sidebar ul li {
+        display: flex;
+        align-items: center;
+        padding: 8px;
+        cursor: pointer;
+        color: #fff; /* White text for list items */
+    }
+    .sidebar ul li.active { background-color: #555; font-weight: bold; } /* Slightly lighter gray for active */
+    .sidebar ul li:hover { background-color: #444; } /* Medium gray on hover */
+    .sidebar ul li i { margin-right: 10px; }
+
+    /* Main Content Styling */
+    .main-content {
+        flex-grow: 1;
+        padding: 20px;
+    }
+</style>
+
+</head>
+<body>
+	
+	 <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Главно</a></li>
+            <li><a href="omeni.html">О мени</a></li>
+			<li><a href="fmgr.html">Датотеке</a></li>
+            <li><a href="projekti.html">Пројекти</a></li>
+            <li><a href="kontakt.html">Контакт</a></li>
+        </ul>
+    </nav>
+	
+	
+    <div class="container">
+        <nav class="sidebar">
+            <h2>Датотеке</h2>
+            <ul>
+                <li data-filter="all" class="active">📁 Све датотеке</li>
+                <li data-filter="documents">📄 Документи</li>
+                <li data-filter="images">🖼️ Слике</li>
+                <li data-filter="videos">🎥 Видеи</li>
+                <li data-filter="archives">🗄️ Архива</li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <h3>Датотеке</h3>
+            <table class="file-table">
+                <thead>
+                    <tr>
+                        <th>Име датотеке</th>
+                        <th>Опис</th>
+                        <th>Врста</th>
+                        <th>Величина</th>
+                        <th>Преузимање</th>
+                    </tr>
+                </thead>
+                <tbody id="fileTableBody">
+                    <tr data-type="documents">
+                        <td class="file-name">motorsports.pptx</td>
+                        <td>Презентација за енглески</td>
+                        <td>PPTX</td>
+                        <td>4 KB</td>
+                        <td><a href="files/motorsports.pptx" download>Преузми</a></td>
+                    </tr>
+                    <tr data-type="documents">
+                        <td class="file-name">kalkulator.exe</td>
+                        <td>Калкулатор направљен у програмском језику "C" за рекреативне и едукативне сврхе.</td>
+                        <td>EXE</td>
+                        <td>55 KB</td>
+                        <td><a href="files/kalkulator.exe" download>Преузми</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="previewBox" class="preview-box"></div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.file-table th').forEach(header => {
+            header.addEventListener('click', () => {
+                const tableBody = document.getElementById('fileTableBody');
+                const rows = Array.from(tableBody.querySelectorAll('tr'));
+                const columnIndex = header.cellIndex;
+                const isAscending = header.getAttribute('data-order') === 'asc';
+                
+                rows.sort((a, b) => {
+                    let textA = a.cells[columnIndex].textContent.trim();
+                    let textB = b.cells[columnIndex].textContent.trim();
+                    return textA > textB ? (isAscending ? 1 : -1) : (isAscending ? -1 : 1);
+                });
+                
+                header.setAttribute('data-order', isAscending ? 'desc' : 'asc');
+                tableBody.innerHTML = '';
+                rows.forEach(row => {
+                    row.classList.add('fade-in');
+                    tableBody.appendChild(row);
+                });
+            });
+        });
+
+        // filter
+        document.querySelectorAll('.sidebar ul li').forEach(link => {
+            link.addEventListener('click', () => {
+                const filter = link.getAttribute('data-filter');
+                
+                document.querySelectorAll('.sidebar ul li').forEach(item => item.classList.remove('active'));
+                link.classList.add('active');
+
+                document.querySelectorAll('#fileTableBody tr').forEach(row => {
+                    const rowType = row.getAttribute('data-type');
+                    row.style.display = filter === 'all' || rowType === filter ? '' : 'none';
+                });
+            });
+        });
+
+        // pregled fajla
+        const previewBox = document.getElementById('previewBox');
+        document.querySelectorAll('.file-name').forEach(file => {
+            file.addEventListener('mouseenter', event => {
+                const description = event.target.parentElement.querySelector('td:nth-child(2)').innerText;
+                const size = event.target.parentElement.querySelector('td:nth-child(4)').innerText;
+                
+                previewBox.innerHTML = `<strong>Опис:</strong> ${description}<br><strong>Величина:</strong> ${size}`;
+                previewBox.style.top = `${event.pageY + 10}px`;
+                previewBox.style.left = `${event.pageX + 10}px`;
+                previewBox.style.display = 'block';
+            });
+            
+            file.addEventListener('mouseleave', () => {
+                previewBox.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

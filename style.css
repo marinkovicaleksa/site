@@ -1,6 +1,6 @@
-/* General Styling */
+/* generalni sajling */
 body {
-    font-family: "Segoe UI";
+    font-family: Bahnschrift;
     margin: 0;
     padding: 0;
     color: #333;
@@ -27,7 +27,7 @@ nav ul li a {
     text-decoration: none;
 }
 
-/* Section Styling */
+/* stajling za sekcije */
 section {
     padding: 2rem;
     text-align: center;
@@ -36,7 +36,7 @@ section {
     padding: 2rem 0;
 }
 
-/* Form Styling */
+/* form stajling */
 form {
     max-width: 400px;
     margin: 0 auto;
@@ -142,21 +142,21 @@ form button:hover {
     white-space: nowrap;
 }
 
-/* Colors for each language */
+/* boje programski jezici */
 .html-bar {
-    background-color: #e34c26; /* HTML color */
+    background-color: #e34c26; /* HTML boja */
 }
 
 .css-bar {
-    background-color: #563d7c; /* CSS color */
+    background-color: #563d7c; /* css boja */
 }
 
 .js-bar {
-    background-color: #f1e05a; /* JavaScript color */
+    background-color: #f1e05a; /* JS boja */
 }
 
 
-/* Contact Section */
+/* kontakt sekcija */
 #contact-info {
     max-width: 600px;
     margin: 2rem auto;
@@ -169,7 +169,7 @@ form button:hover {
     font-size: 1.8rem;
 }
 
-/* Contact Table */
+/* kontakt tabela */
 .contact-table {
     width: 100%;
     border-collapse: collapse;
@@ -209,3 +209,211 @@ form button:hover {
 p1main {
 	border: 5px solid #000000;
 }
+
+/* glavni navbar */
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* logo i ime sajta */
+.main-nav .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%; /* (DOVRSITI OVO) */
+}
+
+.site-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* linkovi */
+.main-nav ul { 
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.main-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.main-nav ul li a:hover {
+    color: #ddd;
+}
+
+/* astetika */
+body {
+    font-family: Bahnschrift; /* glavni font  */
+    background-color: #f3f4f6;
+}
+
+h2, h3 {
+    font-family: Bahnschrift; /* font za naslove */
+}
+
+a {
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #3498db; /* boja efekta */
+}
+
+.main-nav ul li a {
+    position: relative;
+}
+
+.main-nav ul li a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    left: 0;
+    bottom: -5px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.main-nav ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+/* FILE MGR */
+
+/* GLAVNO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f3f4f6;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    padding: 1.5rem;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin: 1rem 0;
+}
+
+.sidebar ul li a {
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #444;
+    color: #fff;
+}
+
+/* glavni sadrzaj */
+.main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    background-color: #fff;
+}
+
+.main-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+/* stilizovanje tabele */
+.file-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.file-table th, .file-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* sirina kolona */
+.file-table th:nth-child(1), .file-table td:nth-child(1) {
+    width: 25%; /* ime */
+}
+
+.file-table th:nth-child(2), .file-table td:nth-child(2) {
+    width: 35%; /* opis */
+}
+
+.file-table th:nth-child(3), .file-table td:nth-child(3) {
+    width: 10%; /* vrsta */
+}
+
+.file-table th:nth-child(4), .file-table td:nth-child(4) {
+    width: 10%; /* velicina */
+}
+
+.file-table th:nth-child(5), .file-table td:nth-child(5) {
+    width: 20%; /* preuzimanje */
+}
+
+.file-table th {
+    font-weight: bold;
+}
+
+.file-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.file-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.file-table a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.file-table a:hover {
+    text-decoration: underline;
+}
+
