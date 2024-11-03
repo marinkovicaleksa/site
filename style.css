@@ -1,6 +1,6 @@
 /* General Styling */
 body {
-    font-family: Verdana, sans-serif;
+    font-family: "Segoe UI";
     margin: 0;
     padding: 0;
     color: #333;
@@ -64,4 +64,149 @@ form button {
 }
 form button:hover {
     background-color: #555;
+}
+
+
+.main-nav {
+    background-color: #333;
+    padding: 1rem;
+    text-align: center;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.main-nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+.main-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* projektni navbar */
+.project-nav {
+    background-color: #e0e0e0; 
+    padding: 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.project-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.project-nav ul li {
+    display: inline;
+    margin: 0 0.5rem;
+}
+
+.project-nav ul li a {
+    color: #555; 
+    text-decoration: none;
+}
+
+.project-nav ul li a:hover {
+    color: #333;
+}
+
+/* korisceni bar */
+
+#languages-used {
+    max-width: 400px;
+    margin: 2rem auto;
+}
+
+.language-bar {
+    display: flex;
+    height: 20px;
+    background-color: #444;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.language-bar div {
+	font-family: "Franklin Gothic Bold", "Arial Black", "sans-serif";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* Colors for each language */
+.html-bar {
+    background-color: #e34c26; /* HTML color */
+}
+
+.css-bar {
+    background-color: #563d7c; /* CSS color */
+}
+
+.js-bar {
+    background-color: #f1e05a; /* JavaScript color */
+}
+
+
+/* Contact Section */
+#contact-info {
+    max-width: 600px;
+    margin: 2rem auto;
+    text-align: center;
+    color: #333;
+}
+
+#contact-info h2 {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+/* Contact Table */
+.contact-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.contact-table th,
+.contact-table td {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.contact-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+}
+
+.contact-table td {
+    background-color: #fafafa;
+}
+
+.contact-table tr:nth-child(even) td {
+    background-color: #f9f9f9;
+}
+
+.contact-table a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.contact-table a:hover {
+    text-decoration: underline;
+}
+
+p1main {
+	border: 5px solid #000000;
 }
