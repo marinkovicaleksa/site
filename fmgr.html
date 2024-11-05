@@ -18,7 +18,7 @@
     .sidebar {
         width: 200px;
         padding: 20px;
-        background-color: #333; /* Dark gray background */
+        background: linear-gradient(90deg, #1a73e8, #00509e); 
         color: #fff; /* White text */
         box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
     }
@@ -29,10 +29,10 @@
         align-items: center;
         padding: 8px;
         cursor: pointer;
-        color: #fff; /* White text for list items */
+        color: #fff; 
     }
-    .sidebar ul li.active { background-color: #555; font-weight: bold; } /* Slightly lighter gray for active */
-    .sidebar ul li:hover { background-color: #444; } /* Medium gray on hover */
+    .sidebar ul li.active { background: linear-gradient(180deg, #1a73e8, #00509e); font-weight: bold; } 
+    .sidebar ul li:hover { background: linear-gradient(180deg, #1a73e8, #00509e); } 
     .sidebar ul li i { margin-right: 10px; }
 
     /* Main Content Styling */
@@ -61,10 +61,10 @@
             <h2>Датотеке</h2>
             <ul>
                 <li data-filter="all" class="active">📁 Све датотеке</li>
-                <li data-filter="documents">📄 Документи</li>
-                <li data-filter="images">🖼️ Слике</li>
-                <li data-filter="videos">🎥 Видеи</li>
-                <li data-filter="archives">🗄️ Архива</li>
+                <li data-filter="doc">📄 Документи</li>
+                <li data-filter="img">🖼️ Слике</li>
+                <li data-filter="vid">🎥 Видеи</li>
+                <li data-filter="arcv">🗄️ Архива</li>
             </ul>
         </nav>
 
@@ -81,18 +81,32 @@
                     </tr>
                 </thead>
                 <tbody id="fileTableBody">
-                    <tr data-type="documents">
+                    <tr data-type="doc">
                         <td class="file-name">motorsports.pptx</td>
                         <td>Презентација за енглески</td>
                         <td>PPTX</td>
                         <td>4 MB</td>
                         <td><a href="files/motorsports.pptx" download>Преузми</a></td>
                     </tr>
-                    <tr data-type="documents">
+                    <tr data-type="doc">
                         <td class="file-name">kalkulator.exe</td>
-                        <td>Калкулатор направљен у програмском језику "C" за рекреативне и едукативне сврхе.</td>
+                        <td>Калкулатор направљен у програмском језику C за рекреативне сврхе.</td>
                         <td>EXE</td>
                         <td>55 KB</td>
+                        <td><a href="files/kalkulator.exe" download>Преузми</a></td>
+                    </tr>
+					<tr data-type="arcv">
+                        <td class="file-name">programiranje_test1</td>
+                        <td>Питања са провере из програмирања (алгоритми).</td>
+                        <td>ZIP</td>
+                        <td>877 KB</td>
+                        <td><a href="files/programiranje_test1.zip" download>Преузми</a></td>
+                    </tr>
+					<tr data-type="doc">
+                        <td class="file-name">kvadratne_jednacine.exe</td>
+                        <td>Мрзим математику. Да бих надокнадио колико можданих вијуга сам већ изгубио на овај бескорисни предмет направио сам овај једноставан програм у програмском језику C који решава квадратне једначине за мене за мање од једне секунде. (⌐■_■)</td>
+                        <td>EXE</td>
+                        <td>56 KB</td>
                         <td><a href="files/kalkulator.exe" download>Преузми</a></td>
                     </tr>
                 </tbody>
